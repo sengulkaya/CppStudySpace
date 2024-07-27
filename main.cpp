@@ -22,32 +22,12 @@ public:
 	}
 
 
-	MyClass(const MyClass& ref)
-	{
-		std::cout << "copy ctor" << "\n";
-
-	}
-
-	MyClass & operator=(const MyClass& ref)
-	{
-		std::cout << "copy assignment" << "\n";
-		return *this;
-	}
+	MyClass(const MyClass& ref) = delete;
 
 
-	MyClass(MyClass&& ref)
-	{
-		std::cout << "move ctor" << "\n";
-	}
-
-	MyClass & operator=(MyClass&& ref)
-	{
-		std::cout << "move assignment" << "\n";
-		return *this;
-	}
 };
 
-void foo(MyClass x) // call by value. so move ctor will be called for x. but what if we eliminate move ctor then copy ctor will be called(BOOM copy ctor is NOT called!)
+void foo(MyClass x) 
 {
 	std::cout << "foo()\n";
 }
@@ -56,4 +36,8 @@ int main()
 {
 	//copy elision ; elision is like elimination
 	foo(MyClass{}); 
+	// call by value. so move ctor will be called for x. but what if we eliminate move ctor then copy ctor will be called(BOOM copy ctor is NOT called!)
+	//c++ 17 öncesi optimization tamamen kaldirilirsa hata olur like nelow
+	// attempting to reference a deleted function	
+
 }
