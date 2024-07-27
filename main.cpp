@@ -18,11 +18,13 @@ public:
 
 };
 
-int main()
+int main() 
 {
 	//conversion ctor nedir?
 
 	MyClass mx; //default ctor will be called
+
+	std::cout << "adddress of mx before conversion stuff " << &mx << "\n";
 
 	std::cout << "main before mx = 5 " << "\n";
 
