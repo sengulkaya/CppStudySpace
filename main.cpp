@@ -15,6 +15,9 @@ void func(MyClass);
 int main() 
 {
 	//user defined conversions >> variadic conversion
+	//user defined conversion sadece conversion ctor ile mi oluyor ? NOO 
+	// fonksiyon grubu daha var user defined conversion saðlayan. Bunlar tür dönüþtürme operator fonksiyonlarý
+	//they are type cast operator functions
 	MyClass m;
 	int x = 10;
 	int* ptr = nullptr;
