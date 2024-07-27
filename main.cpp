@@ -4,18 +4,27 @@
 class MyClass
 {
 public:
-	MyClass();
+	explicit MyClass();
 
 };
 
-void foo()
-{
+void func(MyClass);
 
+MyClass foo()
+{
+	return MyClass();
+	return MyClass{};
+	return {};// this is syntax error
+	
 }
+
 
 int main() 
 {
-	//
-	MyClass m = {};
+	
+	func(MyClass()); //call with temp object ok
+	func(MyClass{}); 
+	func({}); //legal idiom this is syntax error in case of explicit default ctor
+	foo(); //valid
 
 }
