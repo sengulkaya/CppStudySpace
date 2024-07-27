@@ -5,16 +5,23 @@ class MyClass
 {
 public:
 	MyClass();
-	explicit MyClass(int);
+	 void foo() noexcept; // static is not allowed
 };
+
+void foo()
+{
+
+}
 
 int main() 
 {
-	// explicit ctor
 	using namespace std;
-	// so by using explicit keyword for ctor we wont let compiler do user defined conversion implicitly
-	// so thanks to this 
-	MyClass m = static_cast<MyClass> (35) ; /// err it says noo suitable ctor 
+	//Follow c++ core guidelines
+	// //Tek paramlý ctorlarý aksi yönde sebep yoksa explicit yapmalýyýz!
+	// Bazý specifier lar bildirimde kullanýrsan tanýmda kullanmayacksýn ama bazýlarýný her iki yerde de kullanmalýsýn!
+	//explicit bildirimde varsa tanýmda olmayacak not allowed static function bildirilse de tanýmda satatic olmayacak
+	//noexcept hem bildirimde hem de tanýmda oalcak
+
 
 	
 }
