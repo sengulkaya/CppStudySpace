@@ -1,37 +1,20 @@
 #include <iostream>
 #include <vector>
 
-
-class Vector
+class MyClass
 {
 public:
-	Vector();
-	Vector(std::size_t n);
-	//
-
+	MyClass();
+	explicit MyClass(int);
 };
-
-
-
-
 
 int main() 
 {
-	// now 7th row ctor bu ctor nasýl bir nesneyi hayata getiriyor olabilir? 
-	//Guess? 
+	// explicit ctor
 	using namespace std;
+	// so by using explicit keyword for ctor we wont let compiler do user defined conversion implicitly
+	// so thanks to this 
+	MyClass m = 35; /// err it says noo suitable ctor 
 
-	vector<int> ivec;
-
-	//size_t unsigned int
-
-	int ival = 435678;
-
-	ivec = ival; // from int to unsigned it std conversion and unsigned int to Vector user defined conversion so this is disaster!
-	//Fortunately this is invalid but why?
-
-	cout << "ivec.size()" << ivec.size() << "\n";
-
-
-
+	
 }
