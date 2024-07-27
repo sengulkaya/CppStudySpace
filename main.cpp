@@ -45,6 +45,17 @@ void bar(std::string s)
 }
 
 
+/*
+* 
+*to see how vector class have overloaded push_back for l and r values
+class Vector
+{
+public:
+	push_back(const string &);
+	push_back(string &&);
+
+};*/
+
 int main()
 {
 
@@ -54,9 +65,16 @@ int main()
 
 	string sline;
 
-	while (getline(ifs, sline))
+	vector<string> svec;
+
+
+	while (getline(ifs, sline)) //bu halde getline sline 'ý moved from state halinde kullanýyor but sline is still valid bcs vector class leaves it still valid!
 	{
 		cout << sline << "\n";
+
+		//svec.push_back(sline);
+
+		svec.push_back(std::move(sline));
 
 		(void)getchar();
 	}
