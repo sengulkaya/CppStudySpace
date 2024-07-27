@@ -12,7 +12,15 @@ public:
 
 	MyClass& operator=(const MyClass& ref)
 	{
-		std::cout << "copy assignment this : " << this << "\n"; // here this will be mx but ref will bind to temporary object bcs there is no move assignment
+		std::cout << "copy assignment this : " << this << "\n"; 
+		std::cout << "ref pointer value : " << &ref << "\n";
+		return *this;
+	}
+
+
+	MyClass& operator=(MyClass&& ref)
+	{
+		std::cout << "move assignment this : " << this << "\n"; 
 		std::cout << "ref pointer value : " << &ref << "\n";
 		return *this;
 	}
@@ -28,7 +36,7 @@ public:
 int main() 
 {
 	//what if you just add a copy assignment then 
-	//copy ctor is still defaulted but move assignment and move ctor will ne NOT declared
+
 
 
 	MyClass mx;
