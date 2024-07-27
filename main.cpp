@@ -4,7 +4,8 @@
 class MyClass
 {
 public:
-	explicit MyClass(int);
+	explicit MyClass(double);
+	MyClass(int);
 
 };
 
@@ -15,12 +16,7 @@ void foo()
 
 int main() 
 {
-	using namespace std;
-
-	unique_ptr<int> p1{ new int };
-
-	unique_ptr<int> p2{ new int };
-
-	unique_ptr<int> p3 = new int; //explicit ctor
+	//Burada en önemli kural explicit ctor function overload resolution aþamalarýna hiç girmiyor zaten. Bu yüzden hata deðil
+	MyClass m = 45.99;
 
 }
