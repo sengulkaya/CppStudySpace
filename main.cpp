@@ -4,7 +4,7 @@ class MyClass
 {
 public:
 	MyClass();
-	MyClass(int);
+	MyClass(bool);
 	
 	
 
@@ -18,7 +18,7 @@ int main()
 	MyClass m;
 
 
-	m = 4.9073;// legal 
+	m = false;// legal 
 
 
 }
