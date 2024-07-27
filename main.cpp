@@ -4,27 +4,28 @@
 class MyClass
 {
 public:
-	explicit MyClass();
+	explicit MyClass(int, int);
 
 };
 
-void func(MyClass);
-
-MyClass foo()
+void foo(MyClass)
 {
-	return MyClass();
-	return MyClass{};
-	return {};// this is syntax error
+	//
 	
+}
+
+
+MyClass bar()
+{
+	return {45, 78};//valid; making ctor explicit this becomes error
+
 }
 
 
 int main() 
 {
 	
-	func(MyClass()); //call with temp object ok
-	func(MyClass{}); 
-	func({}); //legal idiom this is syntax error in case of explicit default ctor
-	foo(); //valid
+	MyClass m = { 12, 67 };
+	foo({ 12, 67 }); //valid; making ctor explicit this becomes error
 
 }
