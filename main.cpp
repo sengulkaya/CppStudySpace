@@ -1,10 +1,13 @@
 #include <iostream>
+#include <vector>
 
-class String
+
+class Vector
 {
 public:
-	String();
-	String(const char * p);
+	Vector();
+	Vector(std::size_t n);
+	//
 
 };
 
@@ -14,9 +17,21 @@ public:
 
 int main() 
 {
-	String name;
+	// now 7th row ctor bu ctor nasýl bir nesneyi hayata getiriyor olabilir? 
+	//Guess? 
+	using namespace std;
 
-	name = "Þengül"; // valid bcs 7 row conversion stor sayesinde user defined yani 
+	vector<int> ivec;
+
+	//size_t unsigned int
+
+	int ival = 435678;
+
+	ivec = ival; // from int to unsigned it std conversion and unsigned int to Vector user defined conversion so this is disaster!
+	//Fortunately this is invalid but why?
+
+	cout << "ivec.size()" << ivec.size() << "\n";
+
 
 
 }
