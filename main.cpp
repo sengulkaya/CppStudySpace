@@ -4,7 +4,7 @@ class MyClass
 {
 public:
 	MyClass();
-	MyClass(bool);
+	MyClass(int);
 	
 	
 
@@ -14,18 +14,16 @@ void func(MyClass);
 
 int main() 
 {
-	//user defined conversions >> variadic conversion
-	//user defined conversion sadece conversion ctor ile mi oluyor ? NOO 
-	// fonksiyon grubu daha var user defined conversion saðlayan. Bunlar tür dönüþtürme operator fonksiyonlarý
-	//they are type cast operator functions
+	/*
+	* Eðer conversion is done by one of the folllowings sequences , it must be done by compiler implicity
+	* 1 - user defined conversion + standard conversion 
+	* 2 - standard conversion + user defined conversion 
+*/
 	MyClass m;
-	int x = 10;
-	int* ptr = nullptr;
+	double dval = 32.5;
+	
 
-
-	m = ptr; // if pointer is not null it is true if not it is false so pointer to bool conversion is implicit so this conversion is okay
-
-	m = &x;//  it is ok
+	m = dval;//  it is ok
 
 
 }
