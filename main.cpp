@@ -14,7 +14,7 @@ void func(MyClass);
 
 int main() 
 {
-	//user defined conversion >> variadic conversion
+	//user defined conversions >> variadic conversion
 	MyClass m;
 	int x = 10;
 	int* ptr = nullptr;
