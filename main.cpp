@@ -1,5 +1,7 @@
 #include <iostream>
-#include <cstdlib>
+#include <string>
+#include <fstream>
+#include <vector>
 
 class MyClass
 {
@@ -48,17 +50,15 @@ int main()
 
 	using namespace std;
 
-	string s;
+	ifstream ifs{ "how-to-swim-faster.txt" };
 
-	string str(200'00, 'Z');
+	string sline;
 
-	string sx = str; // here it is by copy ctor sx will have a life ama mesela str hayatýný devam ettirmesine raðmen ben onun kaynaðýný çaðýrmak istiyorsam;
+	while (getline(ifs, sline))
+	{
+		cout << sline << "\n";
 
-	string sx_move = std::move(str); // burada artýk str will be an r value gel beni çal diyor str
-	//1 burada daha str dtor çaðrýlmamýþtýr. 
-
-
-
-	s = foo2();
+		(void)getchar();
+	}
 
 }
