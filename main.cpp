@@ -22,11 +22,11 @@ public:
 	}
 
 
-	/*MyClass(const MyClass& ref)
+	MyClass(const MyClass& ref)
 	{
 		std::cout << "copy ctor" << "\n";
 
-	}*/
+	}
 
 	MyClass & operator=(const MyClass& ref)
 	{
@@ -40,11 +40,11 @@ public:
 		std::cout << "move ctor" << "\n";
 	}
 
-	/*MyClass & operator=(MyClass&& ref)
+	MyClass & operator=(MyClass&& ref)
 	{
 		std::cout << "move assignment" << "\n";
 		return *this;
-	}*/
+	}
 };
 
 void foo(MyClass x) // call by value. so move ctor will be called for x. but what if we eliminate move ctor then copy ctor will be called(BOOM copy ctor is NOT called!)
