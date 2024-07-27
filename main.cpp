@@ -15,7 +15,6 @@ public:
 
 };
 
-void func(MyClass);
 
 int main() 
 {
@@ -29,8 +28,9 @@ int main()
 */
 
 	
-	B bx;
-	bx = 13; // this can not happen becuse compiler wont do two user defined conversion
+	B bx; 
+	bx = static_cast<A> (13);
+	// this can not happen becuse compiler wont do two user defined conversion
 
 	//but user defined conversion & udc will not be done by compiler implicitly
 
