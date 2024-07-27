@@ -17,6 +17,6 @@ void foo()
 int main() 
 {
 	//Burada en önemli kural explicit ctor function overload resolution aþamalarýna hiç girmiyor zaten. Bu yüzden hata deðil
-	MyClass m = 45.99;
+	MyClass m(45.99);
 
 }
