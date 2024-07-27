@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-
+#include <memory>
 class MyClass
 {
 public:
@@ -15,8 +15,12 @@ void foo()
 
 int main() 
 {
-	MyClass m1(9); //direct initialization
-	MyClass m2{ 35 }; // direkt list initialization
-	MyClass m3 = 55; // copy initialization this is not valid for explicit ctor
+	using namespace std;
+
+	unique_ptr<int> p1{ new int };
+
+	unique_ptr<int> p2{ new int };
+
+	unique_ptr<int> p3 = new int; //explicit ctor
 
 }
