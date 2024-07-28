@@ -1,8 +1,7 @@
 #include <vector>
 #include <iostream>
 
-#include <vector>
-#include <iostream>
+
 class MyClass
 {
 public:
@@ -17,11 +16,6 @@ public:
 		std::cout << "MyClass(int x) ctor" << this << "\n";
 
 	}
-	explicit MyClass(int x, int y) // making this explicit common practice
-	{
-		std::cout << "MyClass(int x, int y) ctor x = " << x << "y= " << y << "\n";
-
-	}
 
 
 	~MyClass()
@@ -29,64 +23,34 @@ public:
 		std::cout << "dtor" << this << "\n";
 
 	}
-
-
-	MyClass(const MyClass& ref)
-	{
-		std::cout << "copy ctor" << this << "\n";
-	}
-
-
-	MyClass& operator=(const MyClass& ref)
-	{
-		std::cout << "copy assign" << this << "\n";
-	}
-
-	MyClass(MyClass&& ref)
-	{
-		std::cout << "move ctor" << this << "\n";
-	}
-
-
-	MyClass& operator=(MyClass&& ref)
-	{
-		std::cout << "move assign" << this << "\n";
-	}
-
-	void foo()
-	{
-		std::cout << "MyClass foo" << this << "\n";
-	}
-
-	char buf[256]{};
-
-
 };
 
-void* operator new(std::size_t sz)
-{
-	std::cout << "senguls operator new is called" << "\n";
 
-	void* vp = malloc(sz);
-	if (!vp)
+class MyClassPtr
+{
+public:
+	MyClassPtr(MyClass* p) : pm{ p }
 	{
-		throw std::bad_alloc{};
+
 	}
-	std::cout << "address of allocated block is" << sizeof(MyClass) << vp << "\n";
-	return vp;
 
-}
+	~MyClassPtr()
+	{
+		delete pm;
+	}
 
-void operator delete(void* vp)
-{
-	std::cout << "senguls operator delete is called" << vp << "\n";
-	std::free(vp);
-}
+private:
+	MyClass * pm;
+};
+
 
 
 
 int main() 
 {
-	
-	MyClass* p = new MyClass[10];
+	std::cout << "main baþladý" << "\n";
+	{
+		MyClassPtr ptr = new MyClass;
+	}
+	std::cout << "main devam" << "\n";
 }
