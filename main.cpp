@@ -14,6 +14,12 @@ public:
 		std::cout << "MyClass(int x) ctor" << this << "\n";
 
 	}
+	explicit MyClass(int x, int y) // making this explicit common practice
+	{ 
+		std::cout << "MyClass(int x, int y) ctor x = " << x << "y= " << y << "\n";
+
+	}
+
 
 	~MyClass()
 	{
@@ -52,9 +58,11 @@ public:
 
 int main() 
 {
-	
-	MyClass* p1 = new MyClass; //mesela burada sizeof(MyClass) kadar bellek geri verilmiyor -> MEMORY LEAK
-	std::cout << "p1: " << &p1 << "\n";
+	MyClass* p1 = new MyClass;
+	MyClass* p2 = new MyClass();
+	MyClass* p3 = new MyClass{};
+	MyClass* p4 = new MyClass(2, 6);
+	MyClass* p5 = new MyClass{ 2, 6 };
 
 	p1->foo();
 	(*p1).foo();
