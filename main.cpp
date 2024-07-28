@@ -4,8 +4,8 @@
 class MyClass
 {
 public:
-	std::string m_str;
-	std::vector<int> m_vec;
+	std::string m_str; //100000 character
+	std::vector<int> m_vec; // 20000
 
 };
 
@@ -15,6 +15,6 @@ int main()
 {
 	MyClass m; //
 
-	m = foo(); //here move assignment will be called
+	m = foo(); //here move assignment will be called but what if instead it will be copy assignment called. It will be costly
 	
 }
