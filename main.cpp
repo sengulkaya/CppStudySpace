@@ -16,7 +16,7 @@ MoveOnly foo()
 {
 	MoveOnly x;
 
-	return x;// L value to X value
+	return std::move(x);// pessimistic move which makes copy elision not available
 
 }
 
