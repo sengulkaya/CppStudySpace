@@ -16,15 +16,13 @@ MoveOnly foo()
 {
 	MoveOnly x;
 
-	return std::move(x);// pessimistic move which makes copy elision not available
+	return x;// pessimistic move which makes copy elision not available
 
 }
 
 
 int main() 
 {
-	MoveOnly x;
-
-	x = foo();
+	MoveOnly x(foo()); // here there is NO copy elision ? but why
 
 }
