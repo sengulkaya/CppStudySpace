@@ -75,6 +75,8 @@ int main()
 
 	MyClass m2 = func();// move ctor (expectation)
 
+	//HERE WE DID NOT SEND ANY ARGUMENT TO THE FUNCTION FUNC BUT ASLINDA ASSEMBLY KODUNA BAKARSAK FONKSIYONA RETURN DEÐERININ AKTARILACAÐI YERIN DE ADRESI GONDERILIYOR BUNA RETURN SLAP DENIYOR
+
 	std::cout << "this ref address of what func returned : " << &m2 << "\n";
 
 	//Expectation MyClass(int) -  move ctor - destructor - destructor 
