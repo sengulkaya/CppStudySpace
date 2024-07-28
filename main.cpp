@@ -14,12 +14,17 @@ public:
 
 MoveOnly foo()
 {
+	MoveOnly x;
+
+	return x;// L value to X value
 
 }
 
 
 int main() 
 {
-	
+	MoveOnly x;
+
+	x = foo();
 
 }
