@@ -22,7 +22,27 @@ public:
 	}
 
 
-	MyClass(const MyClass& ref) = delete;
+	MyClass(const MyClass& ref)
+	{
+		std::cout << "copy ctor" << "\n";
+	}
+
+	
+	MyClass & operator=(const MyClass& ref)
+	{
+		std::cout << "copy assign" << "\n";
+	}
+
+	MyClass(MyClass&& ref)
+	{
+		std::cout << "move ctor" << "\n";
+	}
+
+
+	MyClass& operator=(MyClass&& ref)
+	{
+		std::cout << "move assign" << "\n";
+	}
 
 
 };
@@ -35,10 +55,7 @@ void foo(MyClass x)
 int main() 
 {
 
-	MyClass{};
-	//Nerelerde temporary materialization oluþuyor? 
-	//1 - Mesela temporary object ile bir nesneye ilk deðer verdiðinizde bu gerçekleþiyor.
-	// 2 - ya da MyClass {} bir reference bind edilirse --> const MyClass & ref = MyClass{};
+	foo(MyClass{ 45});
 
 
 }
