@@ -64,6 +64,8 @@ int main()
 	MyClass* p4 = new MyClass(2, 6);
 	MyClass* p5 = new MyClass{ 2, 6 };
 
+	// why not malloc but operator new bcs operator new can be overloaded and it throws exception unlike malloc
+
 	p1->foo();
 	(*p1).foo();
 }
