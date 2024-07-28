@@ -44,6 +44,8 @@ public:
 		std::cout << "move assign" << this << "\n";
 	}
 
+	void foo(){}
+
 
 };
 
@@ -53,6 +55,7 @@ int main()
 	
 	MyClass* p1 = new MyClass; //mesela burada sizeof(MyClass) kadar bellek geri verilmiyor -> MEMORY LEAK
 	std::cout << "p1: " << &p1 << "\n";
-	auto p2 = new MyClass;
-	auto *  p3 = new MyClass;
+
+	p1->foo();
+	(*p1).foo();
 }
