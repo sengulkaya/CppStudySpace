@@ -1,40 +1,25 @@
 #include <iostream>
 #include <vector>
 
-class MyClass
+class MoveOnly
 {
 public:
-	Date mdate;
-	int a[1000];
+	MoveOnly() = default;
+	MoveOnly(const MoveOnly&) = delete;
+	MoveOnly & operator=(const MoveOnly&) = delete; //You could just declare move assignment and move ctor to get deleted copy ctor and copy assignment but some chose to write it explicity like this
+	MoveOnly(MoveOnly&&);
+	MoveOnly& operator=(MoveOnly&&);
 
 };
 
-class Date
+MoveOnly foo()
 {
-public:
-	int d, m, y;
 
-};
+}
 
-MyClass foo();
-
-class Point
-{
-public:
-	Point(int, int, int);
-private:
-
-};
-
-Point MakePoint(int x) //factory function
-{
-	return Point(x, x, x);
-};
 
 int main() 
 {
-	auto p = MakePoint(3); //same as Point(3, 3, 3);
-
-	Point(3, 3, 3);
+	
 
 }
