@@ -74,6 +74,12 @@ void* operator new(std::size_t sz)
 
 }
 
+void operator delete(void* vp)
+{
+	std::cout << "senguls operator delete is called" << vp << "\n";
+	std::free(vp);
+}
+
 
 
 
@@ -85,5 +91,7 @@ int main()
 	std::cout << "this:  "  << p << "\n";
 
 	p->foo();
+
+	delete p;
 	
 }
