@@ -23,7 +23,7 @@ public:
 
 	~MyClass()
 	{
-		std::cout << "DESTRUCTOR" << this << "\n";
+		std::cout << "dtor" << this << "\n";
 
 	}
 
@@ -50,7 +50,10 @@ public:
 		std::cout << "move assign" << this << "\n";
 	}
 
-	void foo(){}
+	void foo()
+	{
+		std::cout << "MyClass foo" << this << "\n";
+	}
 
 
 };
@@ -58,12 +61,20 @@ public:
 
 int main() 
 {
-	MyClass* p1 = new MyClass;
+	std::cout << "main 1" << "\n";
+
+	std::make_unique<MyClass>();
+	auto p1 = std::make_unique<MyClass>();
 
 
-	delete p1; //p1 -> ~MyClass() after calling the objetcs dtor and then operator delete function is called. 
+	 //p1 -> ~MyClass() after calling the objetcs dtor and then operator delete function is called. 
+
+	p1->foo();
 
 	// 
+	delete p1;
+
+	std::cout << "main 2" << "\n";
 
 	
 }
