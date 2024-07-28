@@ -50,7 +50,8 @@ public:
 
 int main() 
 {
-	MyClass* p1 = new MyClass;
+	
+	MyClass* p1 = new MyClass; //mesela burada sizeof(MyClass) kadar bellek geri verilmiyor -> MEMORY LEAK
 	std::cout << "p1: " << &p1 << "\n";
 	auto p2 = new MyClass;
 	auto *  p3 = new MyClass;
