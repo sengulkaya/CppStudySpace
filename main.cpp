@@ -4,17 +4,37 @@
 class MyClass
 {
 public:
-	std::string m_str; //100000 character
-	std::vector<int> m_vec; // 20000
+	Date mdate;
+	int a[1000];
+
+};
+
+class Date
+{
+public:
+	int d, m, y;
 
 };
 
 MyClass foo();
 
+class Point
+{
+public:
+	Point(int, int, int);
+private:
+
+};
+
+Point MakePoint(int x) //factory function
+{
+	return Point(x, x, x);
+};
+
 int main() 
 {
-	MyClass m; //
+	auto p = MakePoint(3); //same as Point(3, 3, 3);
 
-	m = foo(); //here move assignment will be called but what if instead it will be copy assignment called. It will be costly
-	
+	Point(3, 3, 3);
+
 }
