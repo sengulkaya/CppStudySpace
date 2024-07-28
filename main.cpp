@@ -22,12 +22,10 @@ public:
 	}
 
 
-	MyClass(const MyClass& ref) = delete;
-
-/*
-
-		{
+	MyClass(const MyClass& ref)
+	{
 		std::cout << "copy ctor" << "\n";
+	}
 
 
 	MyClass & operator=(const MyClass& ref)
@@ -46,31 +44,42 @@ public:
 		std::cout << "move assign" << "\n";
 	}
 
-	}*/
-
-	
-	
+	void foo(){}
+	void bar(){}
+	void baz(){}
 
 
 };
 
-MyClass foo(int n) 
+MyClass func() 
 {
-	//code
-	return MyClass{n};
+	MyClass m1{ 365 };// int ctor (expetation)
+
+	std::cout << "this ref address in func : " << &m1 << "\n";
+
+	//REALITY? 
+
+	m1.foo();
+	m1.bar();
+	m1.baz();
+	
+
+	return m1;
 }
 
 int main() 
 {
-	//RVO
+	//NRVO - NAMED return value optimization is NOT mandatory
+	//compiler optimization yapsa da yapmasa da caðrýlabilecek copy ctor ya da move ctor olmasýný zorunlu kýlýyor. Her türlü available olmasý alzým bu ctorlarýn.
 
-	MyClass m = foo(13);// What will happen before c++17 ? 
-	//Fonksiyon return value pr value olduðu için initialize durumunda (MyClass m = foo(13);)  temporary materialization gerçekleþmediði sürece nesne oluþmayacak ki burada oluþuyor.
-	// C++17 öncesi durmunda optimization olmadýðýnda ve copy ctor delete olduðunda hata veriyor. Neden peki move ctor çaðrýlacak ama biz copy delete olmasý diyoruz? 
-	// çünkü copy ctor declare edilmiþ bu durumda move ctor sen yazmadýðýn sürece NOT declared ama gel gör ki olan copy ctor da fall back ile kullanýlmasý gerekirken deleted halde o yüzde özellikle örnek böyle veriliyor.
-	// Burada attempted copy ctor is deleted diye error veriyor.
-	//
 
+	MyClass m2 = func();// move ctor (expectation)
+
+	std::cout << "this ref address of what func returned : " << &m2 << "\n";
+
+	//Expectation MyClass(int) -  move ctor - destructor - destructor 
+
+	//REALITY?  MyClass(int) - destructor  and even the object address of m1 in func and address of what func returned is same
 
 
 }
