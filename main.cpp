@@ -59,13 +59,11 @@ public:
 int main() 
 {
 	MyClass* p1 = new MyClass;
-	MyClass* p2 = new MyClass();
-	MyClass* p3 = new MyClass{};
-	MyClass* p4 = new MyClass(2, 6);
-	MyClass* p5 = new MyClass{ 2, 6 };
 
-	// why not malloc but operator new bcs operator new can be overloaded and it throws exception unlike malloc
 
-	p1->foo();
-	(*p1).foo();
+	delete p1; //p1 -> ~MyClass() after calling the objetcs dtor and then operator delete function is called. 
+
+	// 
+
+	
 }
