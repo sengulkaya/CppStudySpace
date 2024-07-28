@@ -55,26 +55,35 @@ public:
 		std::cout << "MyClass foo" << this << "\n";
 	}
 
+	char buf[124]{};
+
 
 };
+
+void* operator new(std::size_t sz)
+{
+	std::cout << "senguls operator new is called" << "\n"; 
+	 
+ void*  vp = malloc(sz);
+ if (!vp)
+ {
+	 throw std::bad_alloc{};
+ }
+ std::cout << "address of allocated block is" << sizeof(MyClass) << vp << "\n";
+ return vp;
+
+}
+
+
 
 
 int main() 
 {
-	std::cout << "main 1" << "\n";
+	std::cout << "sizeof(MyClass) " << sizeof(MyClass) << "\n";
+	MyClass* p = new MyClass;
 
-	std::make_unique<MyClass>();
-	auto p1 = std::make_unique<MyClass>();
+	std::cout << "this:  "  << p << "\n";
 
-
-	 //p1 -> ~MyClass() after calling the objetcs dtor and then operator delete function is called. 
-
-	p1->foo();
-
-	// 
-	delete p1;
-
-	std::cout << "main 2" << "\n";
-
+	p->foo();
 	
 }
