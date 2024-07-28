@@ -88,10 +88,6 @@ int main()
 	std::cout << "sizeof(MyClass) " << sizeof(MyClass) << "\n";
 	MyClass* p = new MyClass;
 
-	std::cout << "this:  "  << p << "\n";
-
-	p->foo();
-
-	delete p;
+	free(p); //undefined behavious
 	
 }
