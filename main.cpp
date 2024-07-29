@@ -1,13 +1,12 @@
 #include <iostream>
 
 
-class MyClass
+class Nec
 {
 public:
-	static constexpr double version = 5; // constexpr deðiþkenler tipký contexpr fonksiyonþarda olduðu gibi implicity inline
+	static int mx ;
 
 
-private:
 	
 };
 
@@ -15,5 +14,8 @@ private:
 int main()
 {
 
-
+	Nec mnec;
+	Nec* p{ &mnec };
+	p->mx;
+	mnec.mx; //nesne elemaný deðil sýnýf elemaný
 }
