@@ -20,11 +20,6 @@ Mert* foo();
 
 int main()
 {
-	Mert m_mert; // you can not initilize incomplete type; no definition
-
-
-	Mert* m = foo();
-
-	&*m; //it is ok
+	sizeof(Mert);
 
 }
