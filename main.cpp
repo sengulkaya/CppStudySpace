@@ -4,7 +4,7 @@
 class MyClass
 {
 public:
-	static const int version = 5; // sýnýflarýn static, const ve integral type olan veri elemanlarýna sýnýf içinde ilk deðer verilebilir
+	static constexpr double version = 5; // constexpr deðiþkenler tipký contexpr fonksiyonþarda olduðu gibi implicity inline
 
 
 private:
