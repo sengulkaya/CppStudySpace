@@ -1,35 +1,17 @@
 #include <vector>
 #include <iostream>
 //#include <neco.h>
-
-
-
-//class MyClass; //forward declaration and it is incomplete type
-
-class Neco;
-
-class MyClass
+struct Data
 {
-	static Neco snec;
+	int mx;
+	struct Data sData;// incomplete type struct is NOT allowed in struct; any class and struct can not have its own type as its member but it is possible if it is static
 };
 
-
-Neco foo(Neco);
-Neco& bar(Neco&);
-Neco* baz(Neco*, int);
-
-
-class Ali;
-
-Ali* foo();
-Ali& bar();
-void baz(Ali& ref);
-
-class Emre;
-
-extern Emre ge;//letting compiler know that this Emre is defined in another module and this extern makes it known and tells compiler not to spare place for it.
-
-extern Emre ga[];
+class Data
+{
+	int mx;
+	static Data sData;// incomplete type struct is NOT allowed in struct; any class and struct can not ahve its own type as its member but it is possible if it is static
+};
 
 
 
