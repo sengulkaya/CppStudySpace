@@ -4,9 +4,14 @@
 
 
 
-class MyClass; //forward declaration and it is incomplete type
+//class MyClass; //forward declaration and it is incomplete type
 
 class Neco;
+
+class MyClass
+{
+	static Neco snec;
+};
 
 
 Neco foo(Neco);
@@ -25,6 +30,8 @@ class Emre;
 extern Emre ge;//letting compiler know that this Emre is defined in another module and this extern makes it known and tells compiler not to spare place for it.
 
 extern Emre ga[];
+
+
 
 int main() 
 {
