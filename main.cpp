@@ -2,18 +2,12 @@
 #include <iostream>
 
 
-class MyClass
-{
-public:
-	static int mx; // non-defining declaration
-	int my;
-	double d1;
-};
 
-
+class MyClass; //forward declaration
 
 
 int main() 
 {
-	std::cout << "sizeof MyClass " <<  sizeof(MyClass) << "\n";
+
+
 }
