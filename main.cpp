@@ -3,33 +3,21 @@
 class Nec
 {
 public:
-    Nec(int i) : x(i) //ctor initializer list ilk deðer verir halbuki x main çaðrýlmadan once geliyor hayata ve önemlisi ctor initilizer list syntaxý nonstatic veri elemanlarýna ilk deðer verme syntaxýdýr
-    {
-
-    }
+    int x;
+    static int y;
 
 private:
-    static int x;
+   
 };
 
+int x = 5;
 
-int Nec::mx{};
+
+int Nec::y = x;//ERROR because x is first searched in class scope if not then in namespace scope
+//So here x is is found and it is err bcs it does not belong to an object specifically.
+
+
 int main()
 {
-    Nec n1;
-    Nec n2;
-    Nec n3;
 
-
-
-   ++ n1.mx;
-   ++n2.mx;
-   ++n3.mx;
-
-   n1.func();
-
-   std::cout << "mx" << Nec::mx << '\n';
-
-
-    return 0;
 }
