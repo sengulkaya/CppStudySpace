@@ -1,21 +1,12 @@
 #include <iostream>
 
+static int g_x{}; // non-constant globals have external linkage by default, but can be given internal linkage via the static keyword
 
-class Nec
-{
-public:
-	static int mx ;
-
-
-	
-};
-
+const int g_y{ 1 }; // const globals have internal linkage by default
+constexpr int g_z{ 2 }; // constexpr globals have internal linkage by default
 
 int main()
 {
-
-	Nec mnec;
-	Nec* p{ &mnec };
-	p->mx;
-	mnec.mx; //nesne elemaný deðil sýnýf elemaný
+    std::cout << g_x << ' ' << g_y << ' ' << g_z << '\n';
+    return 0;
 }
