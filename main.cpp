@@ -3,20 +3,13 @@
 class Nec
 {
 public:
-    int x;
-    static int mx;
-
-    void foo() const // bu þu demek void foo(const Nec * ) 
+    Nec(int i) : x(i) //ctor initializer list ilk deðer verir halbuki x main çaðrýlmadan once geliyor hayata ve önemlisi ctor initilizer list syntaxý nonstatic veri elemanlarýna ilk deðer verme syntaxýdýr
     {
-        mx = 6; // this is NOT error but it is for nonstatic data members of const object
-       // x = 7; ERROR
+
     }
 
-    void func()
-    {
-        mx = 10;
-        this->mx = 45;
-    }
+private:
+    static int x;
 };
 
 
