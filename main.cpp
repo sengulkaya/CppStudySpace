@@ -3,9 +3,10 @@
 class Nec
 {
 public:
-    static void foo() //class scope
+    static void foo() const //ERR static function has no hidden object param
     {
-
+        Nec mynec;
+        mynec.mx = 5;
     }
     
 
@@ -14,7 +15,10 @@ private:
     
 };
 
-
+void bar()
+{
+   
+}
 
 
 int main()
