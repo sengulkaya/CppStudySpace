@@ -7,11 +7,11 @@ public:
     {
 
     }
-    int x;
-    static int y;
+    
 
 private:
-   
+    int mx;
+    
 };
 
 
