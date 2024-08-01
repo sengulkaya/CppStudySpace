@@ -1,36 +1,30 @@
 #include <iostream>
 
-class MyClass
+class Singleton
 {
 public:
-    static MyClass createObject();
-   
-    
-};
+	Singleton(const Singleton&) = delete;
+	static Singleton* get_instance()
+	{
+		if (!mp)
+		{
+			mp = new Singleton();
+		}
 
-class DynamicOnly
-{
-public:
-    DynamicOnly(const DynamicOnly&) = delete;
-    DynamicOnly& operator=(const DynamicOnly&) = delete;
+		
+		return mp;
+	}
 
-    DynamicOnly * create_object()
-    {
-        return new DynamicOnly();
-    }
-   
+	void foo();
 private:
-    DynamicOnly()
-    {
-
-    }
-
+	inline static Singleton* mp{};
+	Singleton();
 };
 
 
 
 
 int main()
-{    
-
+{    //Fonsiyonalrýn delete edilebilmesi is a new thing. Before thata they were making all the others private like move abd copy ctors
+	Singleton::get_instance()->foo();
 }
