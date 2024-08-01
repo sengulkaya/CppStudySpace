@@ -3,22 +3,17 @@
 class Nec
 {
 public:
-    static void foo() const //ERR static function has no hidden object param
+    static void foo()
     {
-        mx;//ERROR  name lookup ile mx bulunur ama bunu nitelyen bir object yok. O yüzden err
-        Nec nec;
-        nec.mx = 5; //OK
+        bar(); //  ERROR you need an object to call bar
     }
 
-    void bar()
+    void bar() const
     {
-        foo();//same as Nec::foo();
+        foo();// 
     }
 
-    void foox()
-    {
 
-    }
     
 
 private:
@@ -26,16 +21,11 @@ private:
     
 };
 
-void bar()
-{
-   
-}
+
 
 
 int main()
 {
-    Nec mnec;
-    mnec.foo();
-    mnec.foox();// yani static fonksiyonlar nonstatic fonksiyonlarýn çaðrýldýðý gibi çaðrýlmamalý
+    
 
 }
