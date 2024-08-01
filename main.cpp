@@ -1,28 +1,33 @@
 #include <iostream>
 
-class Singleton
+class Myclass
 {
 public:
-	static Singleton& instance()//---------Meyers Signleton
+	 Myclass()
 	{
-		static Singleton object; // dilin verdiði garantiyle static local variables initializations are thread safe;
-		return object;
+		 ++lived_object_count;
+		 ++live_object_count;
 	}
 
-	void foo();
+	~Myclass()
+	 {
+		--live_object_count;
+	 }
+
+	static int get_live_count() // static member functions have no sth like having CONST param
+	{
+		return live_object_count;
+	}
+	
 private:
-	Singleton();
+	inline static int live_object_count{};
+	inline static int lived_object_count{};
+
 };
 
 
 
 
 int main()
-{    //Fonsiyonalrýn delete edilebilmesi is a new thing. Before thata they were making all the others private like move abd copy ctors
-	
-	//---------Meyers Signleton
-
-	//Lazy initialization
-	//Nesne ilk kez ihtiyaç duyulduðu zaman yaratýlýyor. 
-	//Thread safe
+{   
 }
