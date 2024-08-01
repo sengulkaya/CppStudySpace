@@ -9,6 +9,16 @@ public:
         Nec nec;
         nec.mx = 5; //OK
     }
+
+    void bar()
+    {
+        foo();//same as Nec::foo();
+    }
+
+    void foox()
+    {
+
+    }
     
 
 private:
@@ -24,5 +34,8 @@ void bar()
 
 int main()
 {
+    Nec mnec;
+    mnec.foo();
+    mnec.foox();// yani static fonksiyonlar nonstatic fonksiyonlarýn çaðrýldýðý gibi çaðrýlmamalý
 
 }
