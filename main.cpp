@@ -29,6 +29,7 @@ int foo()
 }
 
 int Nec::ival = ::foo();//ý am telling here to look foo in the global namespace
+// bu variable is static so foo is first lookied in the class scope but if it were a global one we will not do name lookup in class scope
 
 
 
