@@ -31,9 +31,6 @@ private:
 
 
 int main()
-{
-    auto c1 = Complex::create_cartesian(3.5, 1.2);
-    auto c2 = Complex::create_polar(.2352, 4.5767);
-    
+{    
 
 }
