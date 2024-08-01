@@ -28,7 +28,7 @@ int foo()
     return 2;
 }
 
-int Nec::ival = foo();// you see 3 in the console bcs foo is first lookiied in the CLASS scope if not there in the namspace 
+int Nec::ival = ::foo();//ý am telling here to look foo in the global namespace
 
 
 
