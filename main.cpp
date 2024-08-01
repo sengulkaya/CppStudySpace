@@ -3,21 +3,14 @@
 class Singleton
 {
 public:
-	Singleton(const Singleton&) = delete;
-	static Singleton* get_instance()
+	static Singleton& instance()//---------Meyers Signleton
 	{
-		if (!mp)
-		{
-			mp = new Singleton();
-		}
-
-		
-		return mp;
+		static Singleton object; // dilin verdiði garantiyle static local variables initializations are thread safe;
+		return object;
 	}
 
 	void foo();
 private:
-	inline static Singleton* mp{};
 	Singleton();
 };
 
@@ -26,5 +19,10 @@ private:
 
 int main()
 {    //Fonsiyonalrýn delete edilebilmesi is a new thing. Before thata they were making all the others private like move abd copy ctors
-	Singleton::get_instance()->foo();
+	
+	//---------Meyers Signleton
+
+	//Lazy initialization
+	//Nesne ilk kez ihtiyaç duyulduðu zaman yaratýlýyor. 
+	//Thread safe
 }
