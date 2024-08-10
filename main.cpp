@@ -1,20 +1,43 @@
 #include <iostream>
 #include <cstdlib>
 
-//aggragate type
-struct Point
+class MyClass
 {
-	//Point(); no ctor in aggragte type
-	int x, y, z;
+public:
+	friend void ff(MyClass);
+private:
+	int mx{};
+	void foo();
 };
+
+void ff(MyClass m)
+{
+	m.foo();//error 
+	MyClass myc;
+	myc.mx = 5; //error
+}
 
 int main()
 {
+
+
+
+
+
+
+
+
+
+
+
+
 	//Friend bildirimleri(Hemen her zaman kendi kodlarýna veriliyor)
 	//Sýnýfýn
 	//a-) Global fonksiyonlarý (free functions)
 	//b-) yardýmcý türler
 
-	Point p = { 1, 2, 3 }; //aggregate initialization
 
+	//ADL : argument dependant lookup
+
+	
 }
