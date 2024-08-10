@@ -1,38 +1,20 @@
 #include <iostream>
 #include <cstdlib>
 
-class MyClass
+//aggragate type
+struct Point
 {
-public:
-	MyClass(int x) : MyClass(x, x, x)
-	{
-		
-	}
-	MyClass(int x, int y) : MyClass(x, x, 0)
-	{
-		
-	}
-	MyClass(int x, int y, int z) : mx(x), my(y), mz(z)
-	{
-		
-	}
-	MyClass(const char* p) : MyClass(std::atoi(p))
-	{
-		
-	}
-
-private:
-	void common_code_init()
-	{
-
-	}
-
-	int mx{}, my{}, mz{};
-
+	//Point(); no ctor in aggragte type
+	int x, y, z;
 };
 
 int main()
 {
-	//delegating ctor (modern c++)
+	//Friend bildirimleri(Hemen her zaman kendi kodlarýna veriliyor)
+	//Sýnýfýn
+	//a-) Global fonksiyonlarý (free functions)
+	//b-) yardýmcý türler
+
+	Point p = { 1, 2, 3 }; //aggregate initialization
 
 }
