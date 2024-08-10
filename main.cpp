@@ -10,9 +10,9 @@ public:
 	friend void foo();//Bir sýnýf kendi fonksiyonuna friend declaration yapamaz!
 	friend void bar(); //Namespace içerisinde olan bir fonksiyon
 	//hidden friend
-	friend int bar(MyClass, int x)
+	friend int bar(MyClass, int x)// this is NOT a member function. an exception
 	{
-		return x * x;
+		return x * x; //This is an inline friend declared hidden friend function. Namespacete bulunan bir function.
 	}
 private:
 	int mx{};
