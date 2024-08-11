@@ -1,40 +1,20 @@
 #include <iostream>
 #include <cstdlib>
 
-
-class Nec
+class MyClass
 {
+	//Mesela bu sýnýf sadece bazý private memberlara friendlik vermek istiyorsa?
+	//Attorney - client idiom
 private:
-	friend class Erg; //legal bcs we add class to friend declaration. Any Erg member function can accesss Nec private memebers
-	int mx;
+	int mx, my, mz;
+	void foo();
+	void bar();
+	void baz();
 };
 
-
-class Erg
-{
-public:
-	void foo(Nec nec)
-	{
-		nec.mx = 20; //legal
-
-	}
-
-	void bar()
-	{
-		Nec* p = new Nec;
-		auto val = p->mx; //legal
-	}
-};
 int main()
 {
 	
-	//Friend bildirimleri(Hemen her zaman kendi kodlarýna veriliyor)
-	//Sýnýfýn
-	//a-) Global fonksiyonlarý (free functions)
-	//b-) yardýmcý türler
-	//ADL : argument dependant lookup
-	//Bir sýnýf bir baþka sýnýf "friend"lik verebilir.
-	//Bu durumda friend bildirimine konu sýnýf incomplete type olabilir!
-
-	
+	//A B'yi friend declare ederse ve B de C'yi friend declare ederse bu demek deðildir ki dolaylý olarak A C'yi friend declare etmiþ olsun!
+  //
 }
