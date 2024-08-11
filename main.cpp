@@ -30,15 +30,25 @@ void ff(MyClass m)
 class Erg
 {
 public:
+	Erg();
+	Erg(int);
 	void foo(int);
 private:
 };
 
+void Erg::foo(int x)
+{
+	Nec necx;
+	necx.mx = x;
+}
+
 class Nec
 {
 private:
+	friend Erg::Erg(); //legal
+	friend Erg::Erg(int); //legal
 	friend void Erg::foo(int);//Baþka bir sýnýfýn fonksiyonu friend declared yapýlacaksa sýnýf türü complete type olmalý
-
+	int mx;
 };
 
 int main()
