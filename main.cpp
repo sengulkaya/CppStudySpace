@@ -1,30 +1,24 @@
 #include <iostream>
+
 class MyClass
 {
+
 public:
 
+	MyClass operator+(const MyClass&) const;
 
+	MyClass operator+(int) const;
+
+	MyClass operator+(double) const;
+
+	MyClass operator+(std::string) const;
+
+	MyClass operator/(const MyClass&) const;
+
+	MyClass operator*(const MyClass&) const;
+
+	bool operator>(const MyClass&) const;
 };
-
-MyClass operator*(const MyClass& m1, const MyClass& m2)
-{
-
-}
-
-MyClass operator+(const MyClass& m1, const MyClass& m2)
-{
-
-}
-
-MyClass operator/(const MyClass& m1, const MyClass& m2)
-{
-
-}
-
-bool operator>(const MyClass& m1, const MyClass& m2)
-{
-
-}
 
 
 
@@ -34,6 +28,6 @@ int main()
 
 	auto b = m1 * m2 + m3 / m4 > m5;
 
-	auto b1 = operator>(operator+(operator*(m1, m2), operator/(m3, m4)), m5);
+	auto b1 = (m1.operator*(m2).operator+(m3.operator/(m4))).operator>(m5);
 	
 }
