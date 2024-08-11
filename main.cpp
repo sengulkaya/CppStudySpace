@@ -1,70 +1,24 @@
 #include <iostream>
 #include <cstdlib>
 
-class MyClass
-{
-public:
-	friend void ff(MyClass);
-	friend int foo(int);
-	friend int foo_with_myclass_param(MyClass);
-	friend void foo();//Bir sýnýf kendi fonksiyonuna friend declaration yapamaz!
-	friend void bar(); //Namespace içerisinde olan bir fonksiyon
-	//hidden friend
-	friend int bar(MyClass, int x)// this is NOT a member function. an exception
-	{
-		return x * x; //This is an inline friend declared hidden friend function. Namespacete bulunan bir function.
-	}
-private:
-	int mx{};
-	void foo();
-};
-
-void ff(MyClass m)
-{
-	m.foo();//error 
-	MyClass myc;
-	myc.mx = 5; //error
-}
-//Erg::foo
-
-class Erg
-{
-public:
-	Erg();
-	Erg(int);
-	void foo(int);
-private:
-};
-
-void Erg::foo(int x)
-{
-	Nec necx;
-	necx.mx = x;
-}
 
 class Nec
 {
 private:
-	friend Erg::Erg(); //legal
-	friend Erg::Erg(int); //legal
-	friend void Erg::foo(int);//Baþka bir sýnýfýn fonksiyonu friend declared yapýlacaksa sýnýf türü complete type olmalý
+	friend class Erg; //legal bcs we add class to friend declaration. Any Erg member function can accesss Nec private memebers
 	int mx;
 };
 
 int main()
 {
-	foo(12); //err undefined declaration "friend int foo(int);" onun global namespace içerisinde görünmesini saðlamýyor
-	MyClass m;
-	foo_with_myclass_param(m);//NO ERR ADL ile ilgili
 	
-
 	//Friend bildirimleri(Hemen her zaman kendi kodlarýna veriliyor)
 	//Sýnýfýn
 	//a-) Global fonksiyonlarý (free functions)
 	//b-) yardýmcý türler
-
-
 	//ADL : argument dependant lookup
+	//Bir sýnýf bir baþka sýnýf "friend"lik verebilir.
+	//Bu durumda friend bildirimine konu sýnýf incomplete type olabilir!
 
 	
 }
