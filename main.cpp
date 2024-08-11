@@ -9,6 +9,22 @@ private:
 	int mx;
 };
 
+
+class Erg
+{
+public:
+	void foo(Nec nec)
+	{
+		nec.mx = 20; //legal
+
+	}
+
+	void bar()
+	{
+		Nec* p = new Nec;
+		auto val = p->mx; //legal
+	}
+};
 int main()
 {
 	
