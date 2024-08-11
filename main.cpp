@@ -2,24 +2,38 @@
 class MyClass
 {
 public:
-	MyClass operator~() const
-	{
-		std::cout << "MyClass::operator~()\n";
-		std::cout << "this" << this <<  '\n';
 
-		return *this;
-	}
 
 };
+
+MyClass operator*(const MyClass& m1, const MyClass& m2)
+{
+
+}
+
+MyClass operator+(const MyClass& m1, const MyClass& m2)
+{
+
+}
+
+MyClass operator/(const MyClass& m1, const MyClass& m2)
+{
+
+}
+
+bool operator>(const MyClass& m1, const MyClass& m2)
+{
+
+}
 
 
 
 int main()
 {
-	MyClass m;
+	MyClass m1, m2, m3, m4, m5;
 
-	std::cout << "&m = " << &m << '\n';
+	auto b = m1 * m2 + m3 / m4 > m5;
 
-	auto x = ~m; //~bitsel deðil and this means auto x = m.opeaator~();
+	auto b1 = operator>(operator+(operator*(m1, m2), operator/(m3, m4)), m5);
 	
 }
