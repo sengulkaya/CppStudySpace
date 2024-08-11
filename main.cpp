@@ -25,6 +25,21 @@ void ff(MyClass m)
 	MyClass myc;
 	myc.mx = 5; //error
 }
+//Erg::foo
+
+class Erg
+{
+public:
+	void foo(int);
+private:
+};
+
+class Nec
+{
+private:
+	friend void Erg::foo(int);//Baþka bir sýnýfýn fonksiyonu friend declared yapýlacaksa sýnýf türü complete type olmalý
+
+};
 
 int main()
 {
