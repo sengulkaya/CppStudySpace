@@ -1,33 +1,25 @@
 #include <iostream>
-
 class MyClass
 {
+public:
+	MyClass operator~() const
+	{
+		std::cout << "MyClass::operator~()\n";
+		std::cout << "this" << this <<  '\n';
+
+		return *this;
+	}
 
 };
 
-int main()
-{
-	MyClass a, b, c;
-	a = b = c;
-}
-//This shows which operators are called
-/*
-#include <iostream>
-
-class MyClass
-{
-  public:
-  // inline constexpr MyClass() noexcept = default;
-  // inline constexpr MyClass & operator=(const MyClass &) noexcept = default;
-};
 
 
 int main()
 {
-  MyClass a;
-  MyClass b;
-  MyClass c;
-  a.operator=(b.operator=(c));
-  return 0;
-}*/
+	MyClass m;
+
+	std::cout << "&m = " << &m << '\n';
+
+	auto x = ~m; //~bitsel deðil and this means auto x = m.opeaator~();
 	
+}
