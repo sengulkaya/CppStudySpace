@@ -1,33 +1,23 @@
-#include <iostream>
+#include <iosfwd>//light header this include forward declarations
 
-class MyClass
-{
 
+class Mint {
 public:
+	//members
+	Mint();
 
-	MyClass operator+(const MyClass&) const;
+	explicit Mint(int);
+	friend std::ostream&  operator<<(std::ostream &os, const Mint &m);
 
-	MyClass operator+(int) const;
+	friend std::istream& operator>>(std::istream& is, Mint& m);
 
-	MyClass operator+(double) const;
-
-	MyClass operator+(std::string) const;
-
-	MyClass operator/(const MyClass&) const;
-
-	MyClass operator*(const MyClass&) const;
-
-	bool operator>(const MyClass&) const;
 };
-
-
 
 int main()
 {
-	MyClass m1, m2, m3, m4, m5;
+	using namespace std;
 
-	auto b = m1 * m2 + m3 / m4 > m5;
+	Mint m;
+	cin >> m;
 
-	auto b1 = (m1.operator*(m2).operator+(m3.operator/(m4))).operator>(m5);
-	
 }
