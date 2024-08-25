@@ -1,23 +1,26 @@
 #include <iosfwd>//light header this include forward declarations
+#include <iostream>
 
+#include "mint.h" //light header this include forward declarations
 
-class Mint {
-public:
-	//members
-	Mint();
-
-	explicit Mint(int);
-	friend std::ostream&  operator<<(std::ostream &os, const Mint &m);
-
-	friend std::istream& operator>>(std::istream& is, Mint& m);
-
-};
 
 int main()
 {
-	using namespace std;
+	Mint m1{1}, m2{2}, m3{3}, m4;
 
-	Mint m;
-	cin >> m;
+	m4 = m1 * m2 + m3;
+
+//	if (m1 > m2) ;
+
+	for (int i = 0; i < 10; i++)
+	{
+		//++m2;
+
+	}
+
+
+	std::cout  << m1 * m2 + m3 << '\n';
+
+	std::cout  << m4 << '\n';
 
 }
