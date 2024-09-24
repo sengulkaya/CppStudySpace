@@ -2,50 +2,22 @@
 #include <iostream>
 #include <ostream>
 #include <string>
-#include <vector>
 
-class MyClass {
-public:
-   MyClass()
-   {
-      std::cout << "MyClass::MyClass()" << std::endl;
 
-   }
-
-   MyClass(int)
-   {
-      std::cout << "MyClass::MyClass(int)" << std::endl;
-
-   }
-
-   MyClass(int, int)
-   {
-      std::cout << "MyClass::MyClass(int, int)" << std::endl;
-   }
-
-   MyClass(std::initializer_list<int> il)
-   {
-      std::cout << "MyClass::MyClass(std::initializer_list<int>)" << std::endl;
-   }
-
-};
 
 int main()
 {
-   //  {//here no narrowing conversion normally}
+   using namespace std;
 
-   MyClass m1(1);
+   string s1(20, 'a');
+   string s2{20, 'a'};
 
-   MyClass m2{2};
+   cout << s1.length() << endl;
+   cout << s2.length() << endl;
 
    /*
-   MyClass::MyClass(int)
-   MyClass::MyClass(std::initializer_list<int>)
-   */
-
-   //MyClass m3(3, 4);
-
-   //MyClass m4(5, 6);
-
+    *20
+    *2
+    */
 
 }
