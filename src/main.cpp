@@ -7,6 +7,7 @@ int main() {
     using namespace std;
     string str(20, 'a');
 
+     int capacity = str.length();
     str.reserve(1'000'000);
     for (int i; i < 1'000'000; ++i) {
         str.push_back('a');
