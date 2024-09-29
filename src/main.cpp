@@ -1,23 +1,13 @@
-#include <initializer_list>
 #include <iostream>
 #include <ostream>
 #include <string>
-
+#include <algorithm>
 int main() {
     using namespace std;
-    string str(20, 'a');
 
-     int capacity = str.length();
-    str.reserve(1'000'000);
-    for (int i; i < 1'000'000; ++i) {
-        str.push_back('a');
+    string s{"adanali kahraman pasa"};
 
-        if ( str.capacity() > capacity ) {
-            cout <<  "length: "<< str.length() << " capacity : " << str.capacity()<<  '\n';
-            capacity = str.capacity();
-           // (void) getchar();
-        }
-        //capacity 2x enlarges
-    }
-    cout << str << endl;
+    cout << s << endl;
+    s.erase(remove(s.begin(), s.end(), 'a'), s.end());
+    cout << s << endl;
 }

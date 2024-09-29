@@ -367,3 +367,5 @@ FodyWeavers.xsd
 *.filters
 *.vcxproj
 *.gitattributes
+editor.xml
+*editor.xml
