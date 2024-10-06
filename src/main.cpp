@@ -1,13 +1,18 @@
 #include <iostream>
-#include <ostream>
-#include <string>
-#include <algorithm>
+
+int a = 1;
+
 int main() {
-    using namespace std;
+    auto f = [](int b) { return a + b; };
 
-    string s{"adanali kahraman pasa"};
-
-    cout << s << endl;
-    s.erase(remove(s.begin(), s.end(), 'a'), s.end());
-    cout << s << endl;
+    std::cout << f(4);
 }
+
+/*Only local variables may be captured by a lambda. a is a global variable with static storage duration and may not be captured.
+
+The body of a lambda-expression may refer to local entities of enclosing block scopes by capturing those entities .
+
+Since a is not captured, a in the lambda expression simply refers to the global variable a.
+
+
+ */
