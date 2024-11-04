@@ -1,23 +1,14 @@
 
-
-#include <iostream>
-
-int add(int x, int y)
+int && foo()
 {
-   return x + y;
 }
 
 
-double add(double x, double y)
+
+int main()
 {
-   return x + y;
+int ival{43};
+    decltype(foo()) x = ival;
+
 }
 
-
-int main() {
-   std::cout << add(1, 2); // calls add(int, int)
-   std::cout << '\n';
-   std::cout << add(1.2, 3.4); // calls add(double, double)
-
-   return 0;
-}
