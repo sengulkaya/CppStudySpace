@@ -1,16 +1,20 @@
+#include <iostream>
 
-int && foo()
-{
+int &&foo() {
 }
 
 
 
-int main()
-{
-int x = 10;
+int main() {
 
-    decltype(x); //identifier int
-    decltype((x)); // bir exp so l val cat so int &
+    //decltype operand is in unevaluated context
+    int a[10]{};
+    int x = 5;
+
+    decltype(a[20]) r = x; //a[20] will noıt be evaluated but it is an l val expression
+
+    ++r;
+
+    std::cout << "x = " << x << '\n'; // x is 6 it compilers
 
 }
-
