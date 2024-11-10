@@ -1,11 +1,18 @@
 
-template<typename T>
-auto pri1(const T &x) { //-> decltype(std::cout << x) {
-    return std::cout << x;
+#include <iostream>
+
+template <class T>
+void print(T a)
+{
+    std::cout << a << std::endl;
 }
 
+int main()
+{
+    print(3.5);
+    print(30L);
+    print('a');
+    print("Ahmet");
 
-int main() {
-    pri1(10); // return val is ostream
+    return 0;
 }
-
